@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  web:
+    build: ./web
+    ports:
+      - 8080:80
+    command: sh /init.sh
+    volumes:
+      - .:/var/www/html
+      - ./web/sites:/etc/apache2/sites-enabled
+      - ./web/init.sh:/init.sh
+      - ./web/logs/:/var/log/apache2
+    links:
+      - db_demo
+      - redis
+  db_demo:
+    image: mysql:5.7
+    volumes:
+      - datastore:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=laravel_quicktask
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+
+  redis:
+    image: redis
+
+volumes:
+  datastore: {}
