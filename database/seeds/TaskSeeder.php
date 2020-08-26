@@ -16,7 +16,6 @@ class TaskSeeder extends Seeder
                 'user_id'=> '1',
                 'name' => 'Fix bug',
                 'description' => 'Fix bug #557',
-                'email_verified_at' => Carbon::now(),
                 'created_at' => Carbon::now(),
 
             ],
@@ -24,7 +23,6 @@ class TaskSeeder extends Seeder
                 'user_id'=> '2',
                 'name' => 'Fix bug',
                 'description' => 'Fix bug #555',
-                'email_verified_at' => Carbon::now(),
                 'created_at' => Carbon::now(),
 
             ],
@@ -32,7 +30,6 @@ class TaskSeeder extends Seeder
                 'user_id'=> '3',
                 'name' => 'Review Code',
                 'description' => 'Review Code',
-                'email_verified_at' => Carbon::now(),
                 'created_at' => Carbon::now(),
 
             ],
