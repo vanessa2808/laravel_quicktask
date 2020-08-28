@@ -35,4 +35,13 @@ return [
         'add_new_task' => 'Add New Task',
         'delete' => 'Delete',
     ],
+    'list_table' => [
+        'id' => 'ID',
+        'user_name' => 'Username',
+        'task_name' => 'Task Name',
+        'description' => 'Description',
+        'created_at' => 'Created_at',
+        'updated_at' => 'Updated_at',
+        'actions' => 'Actions'
+    ]
 ];

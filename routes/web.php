@@ -29,4 +29,5 @@ Route::group(['middleware' => 'locale'], function() {
 Route::group(['prefix' => '/tasks'], function () {
     Route::get('/add_task', ['as' => 'tasks.add_task', 'uses' => 'Task\TaskController@getAddTasks']);
     Route::post('/add_task', ['as' => 'tasks.add_task', 'uses' => 'Task\TaskController@postAddTasks']);
+    Route::resource('/list_task', 'Task\TaskController');
 });

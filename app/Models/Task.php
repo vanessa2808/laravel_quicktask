@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Task extends Model
 {
@@ -37,5 +38,10 @@ class Task extends Model
             return self::RETURN_STR_ZERO;
         }
         return $newTasks;
+    }
+
+    public function getAllTasks()
+    {
+        return $this->all();
     }
 }
