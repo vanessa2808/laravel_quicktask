@@ -67,4 +67,11 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+    public function index()
+    {
+        $list_users= $this->users->getAllUser();
+        return view('users.list_users',[
+            '$list_users' => $list_users
+        ],compact('list_users'));
+    }
 }

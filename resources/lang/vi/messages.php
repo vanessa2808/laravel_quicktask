@@ -23,4 +23,16 @@ return [
     ],
     'toggle_navigation' => 'Chuyển đổi thanh điều ',
     'logged_in' => 'Bạn đã đăng nhập',
+    'task_form' => [
+        'add_task_form' => 'Mấu thêm nhiệm vụ',
+        'user' => 'Người dùng',
+        'assign_user' => 'Người được phân công',
+        'name' => 'Tên',
+        'description' => 'Mô tả',
+        'add_task' => 'Thêm nhiệm vụ',
+        'manage' => 'Quản lí',
+        'task' => 'Nhiệm vụ',
+        'add_new_task' => 'Thêm nhiệm vụ mới',
+        'delete' => 'Xoá',
+    ]
 ];

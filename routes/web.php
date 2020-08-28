@@ -25,3 +25,8 @@ Route::group(['middleware' => 'locale'], function() {
     Route::get('change-language/{language}', 'Language\LanguageController@changeLanguage')
         ->name('user.change-language');
 });
+
+Route::group(['prefix' => '/tasks'], function () {
+    Route::get('/add_task', ['as' => 'tasks.add_task', 'uses' => 'Task\TaskController@getAddTasks']);
+    Route::post('/add_task', ['as' => 'tasks.add_task', 'uses' => 'Task\TaskController@postAddTasks']);
+});

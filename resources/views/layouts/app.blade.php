@@ -24,8 +24,8 @@
 </head>
 <body>
     <div id="app">
-        <a href="{!! route('user.change-language', ['en']) !!}">English</a>
-        <a href="{!! route('user.change-language', ['vi']) !!}">Vietnam</a>
+{{--        <a href="{!! route('user.change-language', ['en']) !!}">English</a>--}}
+{{--        <a href="{!! route('user.change-language', ['vi']) !!}">Vietnam</a>--}}
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">

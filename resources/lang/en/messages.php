@@ -23,4 +23,16 @@ return [
     ],
     'toggle_navigation' => 'Toggle navigation',
     'logged_in' => 'You are logged in',
+    'task_form' => [
+        'add_task_form' => 'Add Task Form',
+        'user' => 'User',
+        'assign_user' => 'Choose assign user',
+        'name' => 'Name',
+        'description' => 'Description',
+        'add_task' => 'Add_task',
+        'manage' => 'Manage',
+        'task' => 'Tasks',
+        'add_new_task' => 'Add New Task',
+        'delete' => 'Delete',
+    ],
 ];
