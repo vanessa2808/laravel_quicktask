@@ -1,11 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-<<<<<<< HEAD
-
-=======
 use Carbon\Carbon;
->>>>>>> migration-and-seeder
+
 class TaskSeeder extends Seeder
 {
     /**

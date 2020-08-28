@@ -1,10 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-<<<<<<< HEAD
-=======
 use Carbon\Carbon;
->>>>>>> migration-and-seeder
 
 class UserSeeder extends Seeder
 {
