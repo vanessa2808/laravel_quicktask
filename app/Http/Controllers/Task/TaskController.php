@@ -41,4 +41,12 @@ class TaskController extends Controller
         ]);
     }
 
+    public function index()
+    {
+        $list_tasks = $this->tasks->getAllTasks();
+        return view('tasks.list_task',[
+           'list_tasks' => $list_tasks
+        ], compact('list_tasks'));
+    }
+
 }

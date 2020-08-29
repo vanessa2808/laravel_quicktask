@@ -32,4 +32,9 @@ class Task extends Model
         }
         return $newTasks;
     }
+
+    public function getAllTasks()
+    {
+        return $this->all();
+    }
 }

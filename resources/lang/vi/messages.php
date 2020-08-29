@@ -34,5 +34,14 @@ return [
         'task' => 'Nhiệm vụ',
         'add_new_task' => 'Thêm nhiệm vụ mới',
         'delete' => 'Xoá',
+    ],
+    'list_table' => [
+        'id' => 'ID',
+        'user_name' => 'Tên người dùng',
+        'task_name' => 'Tên nhiệm vụ',
+        'description' => 'Mô tả',
+        'created_at' => 'Ngày tạo',
+        'updated_at' => 'Ngày chỉnh',
+        'actions' => 'Hành động'
     ]
 ];
