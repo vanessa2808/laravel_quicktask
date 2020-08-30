@@ -60,4 +60,13 @@ class Task extends Model
         return $idTasks;
     }
 
+    public function deleteTasks($id)
+    {
+        $idTasks = $this->find($id);
+        if(! $idTasks->destroy($id)) {
+            return self::RETURN_STR_ZERO;
+        }
+        return $idTasks;
+    }
+
 }

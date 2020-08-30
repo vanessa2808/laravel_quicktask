@@ -32,4 +32,5 @@ Route::group(['prefix' => '/tasks'], function () {
     Route::get('/list_task', ['as' => 'tasks.list_task', 'uses' => 'Task\TaskController@index']);
     Route::get('/edit_task/{id}', ['as' => 'tasks.edit_task', 'uses' => 'Task\TaskController@getEditTasks']);
     Route::post('/edit_task/{id}', ['as' => 'tasks.edit_task', 'uses' => 'Task\TaskController@postEditTasks']);
+    Route::get('/delete/{id}', ['as' => 'tasks.delete', 'uses' => 'Task\TaskController@delete']);
 });

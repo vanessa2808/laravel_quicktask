@@ -74,4 +74,19 @@ class TaskController extends Controller
         ], compact('idTasks'));
     }
 
+    public function delete($id)
+    {
+        $idTasks = $this->tasks->deleteTasks($id);
+        if(! $idTasks == self::RETURN_STR_ZERO) {
+            return redirect()->back()->with([
+                'message' =>' delete error',
+                'class' =>'error'
+            ]);
+        }
+        return redirect('tasks/list_task')->with([
+            'message' => 'delete',
+            'class' => 'success'
+        ]);
+    }
+
 }
