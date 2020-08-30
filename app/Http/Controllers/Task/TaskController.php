@@ -49,4 +49,29 @@ class TaskController extends Controller
         ], compact('list_tasks'));
     }
 
+    public function getEditTasks($id)
+    {
+        $idTasks = $this->tasks->getTaskById($id);
+        $list_users = $this->users->getAllUser();
+        return view('tasks.edit_task',[
+            'idTasks' => $idTasks,
+            'list_users' => $list_users
+        ],compact('idTasks'));
+    }
+
+    public function postEditTasks(TaskRequest $request, $id)
+    {
+        $idTasks = $this->tasks->updateTasks($request, $id);
+        if($idTasks == self::RETURN_STR_ZERO) {
+            return redirect()->back()->with([
+                'message' => 'Update error',
+                'class' => 'error'
+            ]);
+        }
+        return redirect('tasks/list_task',[
+            'message' =>'update successfully',
+            'class' =>'success'
+        ], compact('idTasks'));
+    }
+
 }

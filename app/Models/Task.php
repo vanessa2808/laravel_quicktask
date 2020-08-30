@@ -9,6 +9,10 @@ class Task extends Model
 {
     protected $table = 'tasks';
     protected $fillable = ['user_id', 'name', 'description', 'created_at', 'updated_at'];
+    protected const RETURN_NUM_ZERO = 0;
+    protected const RETURN_NUM_ONE = 1;
+    protected const RETURN_STR_ZERO = "0";
+    protected const RETURN_STR_ONE = "1";
 
     public function user()
     {
@@ -37,4 +41,23 @@ class Task extends Model
     {
         return $this->all();
     }
+
+    public function getTaskById($id)
+    {
+        return $this->find($id);
+    }
+
+    public function updateTasks($request, $id)
+    {
+        $idTasks = $this->find($id);
+        $idTasks->user_id = $request->userId;
+        $idTasks->name = $request->name;
+        $idTasks->description = $request->description;
+        $idTasks->updated_at = Carbon::now();
+        if(! $idTasks->save()) {
+            return self::RETURN_STR_ZERO;
+        }
+        return $idTasks;
+    }
+
 }
