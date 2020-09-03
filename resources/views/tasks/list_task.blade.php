@@ -36,8 +36,11 @@
             <td>{{$tasks->created_at}}</td>
             <td>{{$tasks->updated_at}}</td>
             <td>
-                <a href="{{route('tasks.edit_task',['id'=>$tasks->id])}}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                <a href="#" class="delete"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                <a href="{{route('tasks.edit_task',['id'=>$tasks->id])}}" class="edit" data-toggle="modal"><i
+                        class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a href="{{route('tasks.destroy',['id'=>$tasks->id])}}" class="delete"><i class="material-icons"
+                                                                                          data-toggle="tooltip"
+                                                                                          title="Delete">&#xE872;</i></a>
             </td>
         </tr>
     </tbody>

@@ -50,5 +50,17 @@ return [
         'messageFail' => 'update error',
         'classSuccess' => 'success',
         'classError' => 'error',
+    ],
+    'delete_message' => [
+        'messageSuccess' => 'Delete successfully',
+        'messageFail' => 'Delete fail',
+        'classSuccess' => 'Success',
+        'classFail' => 'Fail',
+    ],
+    'add_message' => [
+        'messageSuccess' => 'Delete successfully',
+        'messageFail' => 'Delete fail',
+        'classSuccess' => 'Success',
+        'classFail' => 'Fail',
     ]
 ];

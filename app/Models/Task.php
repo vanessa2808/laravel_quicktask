@@ -5,7 +5,6 @@ namespace App\Models;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class Task extends Model
 {
@@ -28,22 +27,34 @@ class Task extends Model
         return $this->hasMany(Task::class, 'task_id', 'id');
     }
 
-    public function addTask($request)
-    {
-        $newTasks = new Task();
-        $newTasks->user_id = $request->userId;
-        $newTasks->name = $request->name;
-        $newTasks->description = $request->desccription;
-        $newTasks->created_at = Carbon::now();
-        if (!$newTasks->save()) {
-            return self::RETURN_STR_ZERO;
-        }
-        return $newTasks;
-    }
-
     public function getAllTasks()
     {
         return $this->all();
+    }
+
+    public function addTask(array $attribute)
+    {
+        return $this->create($attribute);
+    }
+
+    public function update($id, array $attribute)
+    {
+        $task = $this->find($id);
+        if($task) {
+            $task->update($attribute);
+            return $task;
+        }
+        return false;
+    }
+
+    public function deleteTasks($id)
+    {
+        $task = $this->find($id);
+        if ($task) {
+            $task->destroy($id);
+            return true;
+        }
+        return false;
     }
 
 }

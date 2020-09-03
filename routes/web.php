@@ -26,9 +26,4 @@ Route::group(['middleware' => 'locale'], function () {
         ->name('user.change-language');
 });
 
-Route::resource('tasks', 'Task\TaskController')->name([
-    'create' => 'tasks.getEditTasks',
-    'store' => 'tasks.postAddTasks',
-    'edit' => 'tasks.getEditTasks',
-    'update' => 'tasks.postEditTasks',
-]);
+Route::resource('tasks', 'Task\TaskController');

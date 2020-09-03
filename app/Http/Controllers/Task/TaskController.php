@@ -7,7 +7,6 @@ use App\Http\Requests\TaskRequest;
 use App\Models\Task;
 use App\User;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class TaskController extends Controller
 {
@@ -20,7 +19,7 @@ class TaskController extends Controller
         $this->tasks = $_tasks;
     }
 
-    public function getAddTasks()
+    public function create()
     {
         $list_users = $this->users->getAllUser();
         return view('tasks.add_task', [
@@ -28,18 +27,22 @@ class TaskController extends Controller
         ]);
     }
 
-    public function postAddTasks(TaskRequest $request)
+    public function store(TaskRequest $request)
     {
-        $newTasks = $this->tasks->addTask($request);
-        if ($newTasks == self::RETURN_STR_ZERO) {
+        $data = $request->all();
+        $data->user_id = $request->user_id;
+        $data->name = $request->name;
+        $data->description = $request->description;
+        $newTask = $this->tasks->addTask($data);
+        if ($newTask) {
             return redirect('tasks/add_task')->with([
-                'message' => 'error action',
-                'class' => 'error'
+                trans('messages.add_message.messageSuccess'),
+                trans('messages.add_message.classSuccess'),
             ]);
         }
         return redirect('tasks/list_task')->with([
-            'message' => 'add successfully',
-            'class' => 'success'
+            trans('messages.add_message.messageFail'),
+            trans('messages.add_message.classFail')
         ]);
     }
 
@@ -51,44 +54,52 @@ class TaskController extends Controller
         ], compact('list_tasks'));
     }
 
-    public function getEditTasks($id)
+    public function edit($id)
     {
-        try {
-            $task = $this->tasks->findOrFail($id);
-            $list_users = $this->users->getAllUser();
+        $task = $this->tasks->find($id);
+        $list_users = $this->users->getAllUser();
+        if ($task) {
             return view('tasks.edit_task', [
                 'idTasks' => $task,
                 'list_users' => $list_users
             ], compact('idTasks'));
-        } catch (ModelNotFoundException $e) {
+        } else
             return redirect()->back();
-        }
     }
 
-    public function postEditTasks(TaskRequest $request, $id)
+    public function update($id,TaskRequest $request)
     {
-        try {
-            $task = $this->tasks->findOrFail($id);
-            $task->user_id = $request->userId;
-            $task->name = $request->name;
-            $task->description = $request->description;
-            $task->updated_at = Carbon::now();
-            if (!$task->save()) {
-                return redirect()->back()->with([
-                    trans('messages.edit_form.messageFail'),
-                    trans('messages.edit_form.classError'),
-                ]);
-            }
+        $data = $request->all();
+        $data->user_id = $request->user_id;
+        $data->name = $request->name;
+        $data->description = $request->description;
+        $task = $this->tasks->update($id, $data);
+        if ($task) {
             return redirect('tasks/list_task', [
                 trans('messages.edit_form.messageSuccess'),
                 trans('messages.edit_form.classSuccess'),
             ], compact('idTasks'));
-        } catch (ModelNotFoundException $e) {
+        } else {
             return redirect()->back()->with([
                 trans('messages.edit_form.messageFail'),
                 trans('messages.edit_form.classError'),
             ]);
         }
+    }
+
+    public function destroy($id)
+    {
+        $deleteResult = $this->tasks->deleteTasks($id);
+        if ($deleteResult) {
+            return redirect('tasks/list_task')->with([
+                trans('messages.delete_message.messageSuccess'),
+                trans('messages.delete_message.classSuccess')
+            ]);
+        }
+        return redirect()->back()->with([
+            trans('messages.delete_message.messageFail'),
+            trans('messages.delete_message.classFail')
+        ]);
     }
 
 }
