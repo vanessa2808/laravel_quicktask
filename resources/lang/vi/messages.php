@@ -23,4 +23,32 @@ return [
     ],
     'toggle_navigation' => 'Chuyển đổi thanh điều ',
     'logged_in' => 'Bạn đã đăng nhập',
+    'task_form' => [
+        'add_task_form' => 'Mấu thêm nhiệm vụ',
+        'user' => 'Người dùng',
+        'assign_user' => 'Người được phân công',
+        'name' => 'Tên',
+        'description' => 'Mô tả',
+        'add_task' => 'Thêm nhiệm vụ',
+        'manage' => 'Quản lí',
+        'task' => 'Nhiệm vụ',
+        'add_new_task' => 'Thêm nhiệm vụ mới',
+        'delete' => 'Xoá',
+    ],
+    'list_table' => [
+        'id' => 'ID',
+        'user_name' => 'Tên người dùng',
+        'task_name' => 'Tên nhiệm vụ',
+        'description' => 'Mô tả',
+        'created_at' => 'Ngày tạo',
+        'updated_at' => 'Ngày chỉnh',
+        'actions' => 'Hành động'
+    ],
+    'edit_form' => [
+        'edit_task' => 'sửa nhiệm vụ',
+        'messageSuccess' => 'Sua thanh cong',
+        'messageFail' => 'xay ra loi',
+        'classSuccess' => 'thanh cong',
+        'classError' => 'loi',
+    ]
 ];

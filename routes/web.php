@@ -21,7 +21,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => 'locale'], function() {
+Route::group(['middleware' => 'locale'], function () {
     Route::get('change-language/{language}', 'Language\LanguageController@changeLanguage')
         ->name('user.change-language');
 });
+
+Route::resource('tasks', 'Task\TaskController')->name([
+    'create' => 'tasks.getEditTasks',
+    'store' => 'tasks.postAddTasks',
+    'edit' => 'tasks.getEditTasks',
+    'update' => 'tasks.postEditTasks',
+]);
