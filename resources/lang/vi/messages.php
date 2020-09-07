@@ -43,5 +43,12 @@ return [
         'created_at' => 'Ngày tạo',
         'updated_at' => 'Ngày chỉnh',
         'actions' => 'Hành động'
+    ],
+    'edit_form' => [
+        'edit_task' => 'sửa nhiệm vụ',
+        'messageSuccess' => 'Sua thanh cong',
+        'messageFail' => 'xay ra loi',
+        'classSuccess' => 'thanh cong',
+        'classError' => 'loi',
     ]
 ];

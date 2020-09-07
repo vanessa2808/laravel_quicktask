@@ -21,13 +21,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => 'locale'], function() {
+Route::group(['middleware' => 'locale'], function () {
     Route::get('change-language/{language}', 'Language\LanguageController@changeLanguage')
         ->name('user.change-language');
 });
 
-Route::group(['prefix' => '/tasks'], function () {
-    Route::get('/add_task', ['as' => 'tasks.add_task', 'uses' => 'Task\TaskController@getAddTasks']);
-    Route::post('/add_task', ['as' => 'tasks.add_task', 'uses' => 'Task\TaskController@postAddTasks']);
-    Route::resource('/list_task', 'Task\TaskController');
-});
+Route::resource('tasks', 'Task\TaskController')->name([
+    'create' => 'tasks.getEditTasks',
+    'store' => 'tasks.postAddTasks',
+    'edit' => 'tasks.getEditTasks',
+    'update' => 'tasks.postEditTasks',
+]);

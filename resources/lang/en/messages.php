@@ -43,5 +43,12 @@ return [
         'created_at' => 'Created_at',
         'updated_at' => 'Updated_at',
         'actions' => 'Actions'
+    ],
+    'edit_form' => [
+        'edit_task' => 'Edit Task',
+        'messageSuccess' => 'update successfully',
+        'messageFail' => 'update error',
+        'classSuccess' => 'success',
+        'classError' => 'error',
     ]
 ];

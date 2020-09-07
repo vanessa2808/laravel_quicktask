@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use App\User;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class Task extends Model
 {
@@ -44,4 +45,5 @@ class Task extends Model
     {
         return $this->all();
     }
+
 }
