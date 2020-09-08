@@ -50,5 +50,17 @@ return [
         'messageFail' => 'xay ra loi',
         'classSuccess' => 'thanh cong',
         'classError' => 'loi',
+    ],
+    'delete_message' => [
+        'messageSuccess' => 'Xoa thanh cong',
+        'messageFail' => 'Xoa khong thanh cong',
+        'classSuccess' => 'Thanh cong',
+        'classFail' => 'That bai',
+    ],
+    'add_message' => [
+        'messageSuccess' => 'Xoa thanh cong',
+        'messageFail' => 'Xoa khong thanh cong',
+        'classSuccess' => 'Thanh cong',
+        'classFail' => 'That bai',
     ]
 ];

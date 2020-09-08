@@ -9,7 +9,7 @@
             @csrf
             <div class="form-group">
                 <label>@lang('messages.task_form.user')</label>
-                <select class="form-control" id="userId" name="userId">
+                <select class="form-control" id="user_id" name="user_id">
                     <option value="0">@lang('messages.task_form.assign_user')</option>
                     @foreach($list_users as $key => $users)
                         <option value="{{ $users->id }}">{{ $users->name }}</option>
